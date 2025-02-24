@@ -1,100 +1,165 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>Franklin Pierce Bio
-    </title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Franklin Pierce Timeline</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
-    <!-- Bootstrap CSS v5.2.1 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-    <link rel="stylesheet" href="style.css">
+        .timeline-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            width: 80%;
+            margin: 50px auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            flex: 1;
+        }
+
+        .timeline-header {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .timeline-event {
+            margin-top: 20px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .timeline-event:hover {
+            background-color: #d1e7dd;
+        }
+
+        .event-details {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f8d7da;
+            border-radius: 5px;
+            color: #721c24;
+        }
+
+        .navbar-toggler {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-toggler {
+                display: block;
+            }
+
+            .go-home-btn {
+                display: block;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+        }
+
+        .go-home-btn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
 </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Franklin Pierce</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="quiz.html">Quiz</a></li>
+                    <li class="nav-item"><a class="nav-link" href="timeline.html">Timeline</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="quiz.html">Quiz</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="timeline.html">Timeline</a>
-                </li>
+    <div class="timeline-container">
+        <h2 class="timeline-header">Franklin Pierce Timeline</h2>
+        
+        <!-- Event Buttons -->
+        <div class="timeline-event" onclick="toggleDetails('event1')">
+            <strong>1804:</strong> Franklin Pierce is born in Hillsborough, New Hampshire.
+        </div>
+        <div id="event1" class="event-details">
+            Franklin Pierce was born on November 23, 1804, in Hillsborough, New Hampshire. He would later become the 14th President of the United States.
+        </div>
 
-            </ul>
+        <div class="timeline-event" onclick="toggleDetails('event2')">
+            <strong>1824:</strong> Pierce graduates from Bowdoin College.
+        </div>
+        <div id="event2" class="event-details">
+            After completing his education, Pierce graduated from Bowdoin College in 1824, where he studied law.
+        </div>
+
+        <div class="timeline-event" onclick="toggleDetails('event3')">
+            <strong>1846-1848:</strong> Pierce serves as a brigadier general in the Mexican-American War.
+        </div>
+        <div id="event3" class="event-details">
+            During the Mexican-American War, Pierce served as a brigadier general and gained recognition for his leadership.
+        </div>
+
+        <div class="timeline-event" onclick="toggleDetails('event4')">
+            <strong>1853:</strong> Franklin Pierce becomes the 14th President of the United States.
+        </div>
+        <div id="event4" class="event-details">
+            Pierce was inaugurated as the 14th President of the United States on March 4, 1853.
+        </div>
+
+        <div class="timeline-event" onclick="toggleDetails('event5')">
+            <strong>1854:</strong> Pierce signs the Kansas-Nebraska Act into law.
+        </div>
+        <div id="event5" class="event-details">
+            In 1854, Pierce signed the Kansas-Nebraska Act, which allowed for the expansion of slavery into new territories, further intensifying the sectional crisis.
+        </div>
+
+        <div class="timeline-event" onclick="toggleDetails('event6')">
+            <strong>1857:</strong> Pierce's presidency ends after he fails to secure a second term.
+        </div>
+        <div id="event6" class="event-details">
+            Pierce's presidency ended in 1857 after he failed to win the Democratic nomination for a second term.
         </div>
     </div>
-</nav>
 
-<body>
-    <header>
-        <!-- place navbar here -->
-    </header>
-    <main>
-        <h1>Franklin Pierce</h1>
+    <!-- Go Home Button for Small Screens -->
+    <div class="go-home-btn">
+        <button class="btn btn-primary" onclick="window.location.href='index.html'">Go Back Home</button>
+    </div>
 
-        <div class="d-flex justify-content-center gap-3 flex-wrap">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">May 30, 1854
-                        Kansas-Nebraska Act
-                        The Kansas-Nebraska Act is signed into law after being introduced by President Pierce's rival,
-                        Senator Stephen Douglas (Democrat - IL).
-                    </p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-
-
-
-
-    </main>
-    <footer>
-        <!-- place footer here -->
-    </footer>
-    <!-- Bootstrap JavaScript Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Function to toggle event details visibility
+        function toggleDetails(eventId) {
+            const eventDetails = document.getElementById(eventId);
+            if (eventDetails.style.display === "none" || eventDetails.style.display === "") {
+                eventDetails.style.display = "block";
+            } else {
+                eventDetails.style.display = "none";
+            }
+        }
+    </script>
 </body>
-
 </html>

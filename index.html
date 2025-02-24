@@ -1,148 +1,153 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Franklin Pierce Bio
-        </title>
-        <!-- Required meta tags -->
-        <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Franklin Pierce Biography</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        .image-box {
+            position: relative;
+            display: inline-block;
+        }
 
-        <!-- Bootstrap CSS v5.2.1 -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-            crossorigin="anonymous"
-        />
-        <link rel="stylesheet" href="style.css">
-    </head>
+        .image-box img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
 
+        .image-box::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .image-box:hover::after {
+            opacity: 1;
+        }
+
+        blockquote {
+            font-style: italic;
+            margin-top: 20px;
+            padding-left: 15px;
+            border-left: 5px solid #ccc;
+        }
+
+        .section-heading {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .additional-info {
+            margin-top: 20px;
+        }
+
+        .content, .sidebar {
+            position: relative;
+            padding: 15px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            z-index: 1; /* Ensures it stays above background */
+        }
+
+        .content:hover, .sidebar:hover {
+            background-color: rgba(0, 0, 255, 0.1); /* Blue hover effect */
+            z-index: 2; /* Make sure it’s in front when hovered */
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        #quoteDisplay {
+            margin-top: 20px;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        #quoteButton {
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="quiz.html">Quiz</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="timeline.html">Timeline</a>
-            </li>
-            
-          </ul>
+        <div class="container">
+            <a class="navbar-brand" href="#">Franklin Pierce</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="quiz.html">Quiz</a></li>
+                    <li class="nav-item"><a class="nav-link" href="timeline.html">Timeline</a></li>
+                </ul>
+            </div>
         </div>
-      </div>
     </nav>
-    <body>
-        <header>
-            <!-- place navbar here -->
-        </header>
-        <main>
-            <h1>Franklin Pierce</h1>
+    
+    <div class="container mt-4 d-flex">
+        <!-- Main Content Section -->
+        <div class="content me-4">
+            <h1 class="text-center">Franklin Pierce</h1>
+            <p class="text-center">14th President of the United States (1853-1857)</p>
 
-            <h3>Early Life</h3>
+            <div class="section-heading">Early Life</div>
+            <p>Franklin Pierce was born in Hillsborough, New Hampshire, in 1804. He was the son of Benjamin Pierce, a Revolutionary War hero and New Hampshire governor. Pierce attended Bowdoin College, where he was classmates with future president Nathaniel Hawthorne, who became a lifelong friend.</p>
 
-            <div class="d-flex justify-content-center gap-3 flex-wrap">
-              <div class="card" style="width: 18rem;">
-                  <img src="..." class="card-img-top" alt="...">
-                  <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">May 30, 1854
-                          Kansas-Nebraska Act
-                          The Kansas-Nebraska Act is signed into law after being introduced by President Pierce's rival, Senator Stephen Douglas (Democrat - IL).
-                      </p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-              </div>
-          
-              <div class="card" style="width: 18rem;">
-                  <img src="..." class="card-img-top" alt="...">
-                  <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Franklin attended local schools until age twelve when 
-                        he was sent to private academies. At fifteen, he entered Bowdoin College in Maine where he made many friends, 
-                        including a budding young writer named Nathaniel Hawthorne. At first, young Franklin enjoyed the 
-                        social life at Bowdoin so much that his schoolwork took second priority. Soon he was last in his class. 
-                        He gradually began to apply himself to his studies and by graduation in 1824, he ranked fifth in his class</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-              </div>
-          
-              <div class="card" style="width: 18rem;">
-                  <img src="..." class="card-img-top" alt="...">
-                  <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-          </div>
+            <div class="section-heading">Presidency</div>
+            <p>Franklin Pierce served as the 14th president of the United States from 1853 to 1857. His presidency is often remembered for the Kansas-Nebraska Act, which intensified sectional tensions leading up to the Civil War. Pierce sought to expand the country through the Gadsden Purchase and advocated for stronger enforcement of the Fugitive Slave Act.</p>
 
-          <div class="d-flex justify-content-center gap-3 flex-wrap">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">May 30, 1854
-                        Kansas-Nebraska Act
-                        The Kansas-Nebraska Act is signed into law after being introduced by President Pierce's rival,
-                        Senator Stephen Douglas (Democrat - IL).
-                    </p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Franklin attended local schools until age twelve when 
-                      he was sent to private academies. At fifteen, he entered Bowdoin College in Maine where he made many friends, 
-                      including a budding young writer named Nathaniel Hawthorne. At first, young Franklin enjoyed the 
-                      social life at Bowdoin so much that his schoolwork took second priority. Soon he was last in his class. 
-                      He gradually began to apply himself to his studies and by graduation in 1824, he ranked fifth in his class.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
+            <div class="section-heading">Political Views</div>
+            <p>Pierce believed in the principle of Manifest Destiny, the belief that the U.S. was destined to expand westward. His administration was supportive of the expansion of slavery into new territories, a stance that caused further polarization between North and South.</p>
         </div>
 
-          
-          
-        </main>
-        <footer>
-            <!-- place footer here -->
-        </footer>
-        <!-- Bootstrap JavaScript Libraries -->
-        <script
-            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-            crossorigin="anonymous"
-        ></script>
+        <!-- Sidebar Section -->
+        <div class="sidebar">
+            <button id="quoteButton" class="btn btn-outline-secondary">Show a Quote</button>
+            <p id="quoteDisplay" class="mt-3"></p>
 
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-            crossorigin="anonymous"
-        ></script>
-    </body>
+            <div class="section-heading">Images</div>
+            <div class="image-box">
+                <img src="https://via.placeholder.com/300" alt="Franklin Pierce">
+            </div>
+            
+            <div class="section-heading">Legacy</div>
+            <p>While his presidency is often considered ineffective, Pierce's legacy is shaped by his attempt to hold the Union together amidst growing sectional divisions. His policies and actions contributed to the intensifying tensions that eventually led to the American Civil War.</p>
+
+            <div class="section-heading">Death and Posthumous Recognition</div>
+            <p>Pierce's later years were marked by personal tragedy, including the death of his son in a train accident. He passed away in 1869 and is often ranked poorly among U.S. presidents due to his inability to prevent the Civil War.</p>
+        </div>
+    </div>
+    
+    <script>
+        const quotes = [
+            "The storm of frenzy and faction must inevitably dash itself in vain against the unshaken rock of the Constitution.",
+            "Frequently the more trifling the subject, the more animated and protracted the discussion.",
+            "You have summoned me in my weakness. You must sustain me by your strength."
+        ];
+
+        // Button click listener to show a random quote
+        document.getElementById("quoteButton").addEventListener("click", function() {
+            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            document.getElementById("quoteDisplay").innerHTML = `<blockquote>${randomQuote}</blockquote>`;
+        });
+    </script>
+    
+    <script src="script.js"></script>
+</body>
 </html>

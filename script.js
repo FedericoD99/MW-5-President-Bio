@@ -1,3 +1,4 @@
+//quotes code
 const quotes = [
     "The storm of frenzy and faction must inevitably dash itself in vain against the unshaken rock of the Constitution.",
     "Frequently the more trifling the subject, the more animated and protracted the discussion.",
@@ -11,6 +12,8 @@ document.getElementById("quoteButton").addEventListener("click", function() {
 });
 
 
+
+//quiz code
 const questions = [
     {
         question: "Where was Franklin Pierce born?",
@@ -35,30 +38,48 @@ const questions = [
 let currentQuestion = 0;
 let score = 0;
 
+// Ensure the DOM is fully loaded before running the quiz
+document.addEventListener('DOMContentLoaded', () => {
+    loadQuestion();
+});
+
 function loadQuestion() {
     const q = questions[currentQuestion];
+
+    if (!q) {
+        console.error("No question found for index:", currentQuestion);
+        return;
+    }
+
+    console.log("Loading Question:", q.question); // Debugging output
+
     document.getElementById("question").textContent = q.question;
-    document.getElementById("answer1").textContent = q.answers[0];
-    document.getElementById("answer2").textContent = q.answers[1];
-    document.getElementById("answer3").textContent = q.answers[2];
-    document.getElementById("answer4").textContent = q.answers[3];
+    document.getElementById("answer1").textContent = q.answers[0] || "Option 1";
+    document.getElementById("answer2").textContent = q.answers[1] || "Option 2";
+    document.getElementById("answer3").textContent = q.answers[2] || "Option 3";
+    document.getElementById("answer4").textContent = q.answers[3] || "Option 4";
+
     document.getElementById("feedback").textContent = "";
     document.getElementById("next-btn").style.display = "none";
+
+    enableButtons();
 }
 
 function checkAnswer(selected) {
     const q = questions[currentQuestion];
     const feedbackElement = document.getElementById("feedback");
+
     if (selected === q.correct) {
         score++;
         feedbackElement.textContent = "Correct! " + q.explanation;
         feedbackElement.style.color = "green";
-        document.getElementById("next-btn").style.display = "inline-block";
     } else {
         feedbackElement.textContent = "Incorrect. " + q.explanation;
         feedbackElement.style.color = "red";
-        document.getElementById("next-btn").style.display = "inline-block";
     }
+
+    document.getElementById("next-btn").style.display = "inline-block";
+    disableButtons();
 }
 
 function nextQuestion() {
@@ -73,14 +94,24 @@ function nextQuestion() {
 function showScore() {
     const quizContainer = document.querySelector(".quiz-container");
     quizContainer.innerHTML = `<h2>Your Score: ${score} out of ${questions.length}</h2>`;
-    document.querySelector(".go-home-btn").style.display = "block"; // Show the "Go Back Home" button
+    document.querySelector(".go-home-btn").style.display = "block"; // Show "Go Back Home" button
 }
 
-// Initialize quiz
-loadQuestion();
+function disableButtons() {
+    document.querySelectorAll(".answer-btn").forEach(btn => btn.disabled = true);
+}
+
+function enableButtons() {
+    document.querySelectorAll(".answer-btn").forEach(btn => btn.disabled = false);
+}
+
+//end of quiz code
 
 
 
+
+
+//timeline code
  // Function to toggle event details visibility
  function toggleDetails(eventId) {
     const eventDetails = document.getElementById(eventId);

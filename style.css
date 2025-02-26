@@ -1,11 +1,4 @@
-h1 {
-    text-align: center;
-    
-}
 
-.card {
-    text-align: center;
-}
 .image-box {
     position: relative;
     display: inline-block;
@@ -71,7 +64,8 @@ blockquote {
 
 
 
-
+/* This is the quiz css */
+/* General Body Styling */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
@@ -79,8 +73,10 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    margin: 0;
 }
 
+/* Quiz Container */
 .quiz-container {
     background-color: white;
     border-radius: 8px;
@@ -91,47 +87,73 @@ body {
     flex: 1;
 }
 
+/* Question Styling */
 .question {
     font-size: 1.5rem;
     margin-bottom: 20px;
 }
 
+/* Answer Button Styling */
 .answer-btn {
     display: block;
     margin: 10px auto;
     width: 80%;
+    padding: 12px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
+.answer-btn:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Feedback Section Styling */
 .feedback {
     font-size: 1.2rem;
     margin-top: 20px;
 }
 
-.navbar-toggler {
-    display: none;
+/* Next Button Styling */
+#next-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2rem;
+    margin-top: 20px;
 }
 
-@media (max-width: 768px) {
-    .navbar-toggler {
-        display: block;
-    }
-
-    .go-home-btn {
-        display: block;
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-}
-
+/* Go Home Button for Small Screens */
 .go-home-btn {
     display: none;
     position: fixed;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-}      
+}
+
+@media (max-width: 768px) {
+    /* Show Go Home Button */
+    .go-home-btn {
+        display: block;
+        margin-top: 20px;
+    }
+
+    /* Navbar toggler on smaller screens */
+    .navbar-toggler {
+        display: block;
+    }
+}
+
+/* Styling for Navbar Toggler in Mobile View */
+.navbar-toggler {
+    display: none;
+}
+
+/* This is the end quiz css */
 
 
+/* This is the timeline css */
 
 body {
     font-family: Arial, sans-serif;
@@ -203,5 +225,6 @@ body {
     left: 50%;
     transform: translateX(-50%);
 }
+/* This is the end of timeline css */
 
   

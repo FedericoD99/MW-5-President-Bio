@@ -18,19 +18,19 @@ const quizData = [
     {
         question: "What number president was Franklin Pierce?",
         answers: ["10th", "14th", "16th", "18th"],
-        correct: 1,
+        correct: 1, // correct answer is the second one (14th)
         explanation: "Franklin Pierce was the 14th president of the United States."
     },
     {
         question: "Which political party did Franklin Pierce belong to?",
         answers: ["Republican", "Whig", "Democratic", "Federalist"],
-        correct: 2,
+        correct: 2, // correct answer is the third one (Democratic)
         explanation: "Franklin Pierce was a member of the Democratic Party."
     },
     {
         question: "What major event happened during Pierce's presidency?",
         answers: ["The Civil War began", "The Kansas-Nebraska Act was passed", "The Louisiana Purchase was made", "The Emancipation Proclamation was issued"],
-        correct: 1,
+        correct: 1, // correct answer is the second one (Kansas-Nebraska Act was passed)
         explanation: "The Kansas-Nebraska Act was passed in 1854 during Pierce's presidency, leading to increased tensions over slavery."
     }
 ];
@@ -96,6 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     loadQuestion();
 });
+
 
 
 

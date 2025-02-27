@@ -14,96 +14,94 @@ document.getElementById("quoteButton").addEventListener("click", function() {
 
 
 //quiz code
-const questions = [
+const quizData = [
     {
-        question: "Where was Franklin Pierce born?",
-        answers: ["Hillsborough, New Hampshire", "Boston, Massachusetts", "Washington, D.C.", "New York, New York"],
+        question: "What number president was Franklin Pierce?",
+        answers: ["10th", "14th", "16th", "18th"],
         correct: 1,
-        explanation: "Franklin Pierce was born in Hillsborough, New Hampshire, in 1804."
+        explanation: "Franklin Pierce was the 14th president of the United States."
     },
     {
-        question: "What year did Franklin Pierce become president?",
-        answers: ["1850", "1852", "1853", "1855"],
-        correct: 3,
-        explanation: "Franklin Pierce was inaugurated as the 14th President of the United States in 1853."
-    },
-    {
-        question: "What act did Franklin Pierce sign into law in 1854?",
-        answers: ["The Homestead Act", "The Kansas-Nebraska Act", "The Civil Rights Act", "The Monroe Doctrine"],
+        question: "Which political party did Franklin Pierce belong to?",
+        answers: ["Republican", "Whig", "Democratic", "Federalist"],
         correct: 2,
-        explanation: "The Kansas-Nebraska Act, signed by Pierce, allowed for the possibility of slavery to expand into new territories."
+        explanation: "Franklin Pierce was a member of the Democratic Party."
+    },
+    {
+        question: "What major event happened during Pierce's presidency?",
+        answers: ["The Civil War began", "The Kansas-Nebraska Act was passed", "The Louisiana Purchase was made", "The Emancipation Proclamation was issued"],
+        correct: 1,
+        explanation: "The Kansas-Nebraska Act was passed in 1854 during Pierce's presidency, leading to increased tensions over slavery."
     }
 ];
 
 let currentQuestion = 0;
 let score = 0;
 
-// Ensure the DOM is fully loaded before running the quiz
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", function () {
+    const questionEl = document.getElementById("question");
+    const buttons = [
+        document.getElementById("answer1"),
+        document.getElementById("answer2"),
+        document.getElementById("answer3"),
+        document.getElementById("answer4")
+    ];
+    const feedbackEl = document.getElementById("feedback");
+    const nextBtn = document.getElementById("next-btn");
+
+    function loadQuestion() {
+        let q = quizData[currentQuestion];
+        questionEl.textContent = q.question;
+        buttons.forEach((btn, index) => {
+            btn.textContent = q.answers[index];
+            btn.disabled = false;
+        });
+        feedbackEl.textContent = "";
+        nextBtn.style.display = "none";
+    }
+
+    function checkAnswer(selected) {
+        let q = quizData[currentQuestion];
+        buttons.forEach(btn => btn.disabled = true);
+        if (selected === q.correct) {
+            feedbackEl.textContent = "Correct!";
+            score++;
+        } else {
+            feedbackEl.textContent = "Incorrect. " + q.explanation;
+        }
+        nextBtn.style.display = "block";
+    }
+
+    function nextQuestion() {
+        currentQuestion++;
+        if (currentQuestion < quizData.length) {
+            loadQuestion();
+        } else {
+            showFinalScore();
+        }
+    }
+
+    function showFinalScore() {
+        questionEl.textContent = `You scored ${score} out of ${quizData.length}!`;
+        buttons.forEach(btn => btn.style.display = "none");
+        feedbackEl.textContent = "";
+        nextBtn.style.display = "none";
+    }
+
+    buttons.forEach((btn, index) => {
+        btn.addEventListener("click", () => checkAnswer(index));
+    });
+
+    nextBtn.addEventListener("click", nextQuestion);
+
     loadQuestion();
 });
 
-function loadQuestion() {
-    const q = questions[currentQuestion];
 
-    if (!q) {
-        console.error("No question found for index:", currentQuestion);
-        return;
-    }
 
-    console.log("Loading Question:", q.question); // Debugging output
 
-    document.getElementById("question").textContent = q.question;
-    document.getElementById("answer1").textContent = q.answers[0] || "Option 1";
-    document.getElementById("answer2").textContent = q.answers[1] || "Option 2";
-    document.getElementById("answer3").textContent = q.answers[2] || "Option 3";
-    document.getElementById("answer4").textContent = q.answers[3] || "Option 4";
 
-    document.getElementById("feedback").textContent = "";
-    document.getElementById("next-btn").style.display = "none";
 
-    enableButtons();
-}
-
-function checkAnswer(selected) {
-    const q = questions[currentQuestion];
-    const feedbackElement = document.getElementById("feedback");
-
-    if (selected === q.correct) {
-        score++;
-        feedbackElement.textContent = "Correct! " + q.explanation;
-        feedbackElement.style.color = "green";
-    } else {
-        feedbackElement.textContent = "Incorrect. " + q.explanation;
-        feedbackElement.style.color = "red";
-    }
-
-    document.getElementById("next-btn").style.display = "inline-block";
-    disableButtons();
-}
-
-function nextQuestion() {
-    currentQuestion++;
-    if (currentQuestion < questions.length) {
-        loadQuestion();
-    } else {
-        showScore();
-    }
-}
-
-function showScore() {
-    const quizContainer = document.querySelector(".quiz-container");
-    quizContainer.innerHTML = `<h2>Your Score: ${score} out of ${questions.length}</h2>`;
-    document.querySelector(".go-home-btn").style.display = "block"; // Show "Go Back Home" button
-}
-
-function disableButtons() {
-    document.querySelectorAll(".answer-btn").forEach(btn => btn.disabled = true);
-}
-
-function enableButtons() {
-    document.querySelectorAll(".answer-btn").forEach(btn => btn.disabled = false);
-}
 
 //end of quiz code
 

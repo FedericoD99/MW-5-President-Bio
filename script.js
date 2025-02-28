@@ -13,12 +13,6 @@ document.getElementById("quoteButton").addEventListener("click", function() {
 
 
 
-
-
-
-
-
-
 //timeline code
  // Function to toggle event details visibility
  function toggleDetails(eventId) {

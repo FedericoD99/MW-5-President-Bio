@@ -63,11 +63,18 @@ blockquote {
 }
 
 
+.sigmar-regular {
+    font-family: "Sigmar", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+
 
 /* This is the quiz css */
 /* General Body Styling */
 body {
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Poppins', sans-serif !important;
     background-color: gray;
     text-align: center;
     display: flex;
@@ -157,7 +164,7 @@ body {
 /* This is the timeline css */
 
 body {
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
     background-color: lightblue;
     text-align: center;
     display: flex;
@@ -227,6 +234,8 @@ body {
     transform: translateX(-50%);
 }
 /* This is the end of timeline css */
+
+
 
 
 
